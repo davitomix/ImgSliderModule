@@ -49,20 +49,20 @@ body {
       background-image: url(./img/2.jpg);
     }
     .th-3 {
-      top: -1100vh;
+      top: -1100px;
       right: -100vw;
       z-index: 1;
       background-image: url(./img/3.jpg);
     }
   }
   .slider.clicked .th-1 {
-    transform: translate(-100vw, 0);
+    transform: translate(0, 0);
   }
   .slider.clicked .th-2 {
     transform: translate(0, 0);
   }
   .slider.clicked .th-3 {
-    transform: translate(0, 0);
+    transform: translate(-100vw, 0);
   }
   .next, .prev {
     border-radius: 50%;
