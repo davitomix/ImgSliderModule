@@ -1,12 +1,12 @@
 # Easy-Slider.
 
-> This is  project based on a basic module to easly implement image sliders with predefined and custom transition effects.
+> This is  project based on a basic module to easly implement a simple horizontal slider.
 
 ![screenshot](./ok.gif)
 
 ## Usage
 
-- Coming soon. :construction_worker:
+- ... :construction_worker:
 
 ## Built With
 
@@ -17,7 +17,7 @@
 ## Live Demo
 
 [Live Demo Link :rocket:](#) 
-- Coming soon. :construction_worker:
+- ... :construction_worker:
 
 ## Authors
 
