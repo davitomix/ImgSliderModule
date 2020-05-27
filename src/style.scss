@@ -38,30 +38,46 @@ body {
     }
     .th-1 {
       top: 0;
-      right: 0;
-      z-index: 1;
       background-image: url(./img/1.jpg);
     }
     .th-2 {
       top: -550px;
-      right: -100vw;
-      z-index: 1;
       background-image: url(./img/2.jpg);
     }
     .th-3 {
       top: -1100px;
-      right: -100vw;
-      z-index: 1;
       background-image: url(./img/3.jpg);
     }
   }
-  .thumbs.th-in {
+  
+  .thumbs.th-active {
+    right: 0;
+    z-index: 1;
+  }
+
+  .thumbs.th-deactive {
+    right: 0;
+    z-index: -1;
+  }
+
+  .thumbs.th-r-in {
+    right: -100vw;
     transform: translate(-100vw, 0);
   }
 
-  .thumbs.th-out {
-    transform: translate(-85vw, 0);
+  .thumbs.th-r-out {
+    transform: translate(-100vw, 0);
   }
+
+  .thumbs.th-l-in {
+    right: 100vw;
+    transform: translate(100vw, 0);
+  }
+
+  .thumbs.th-l-out {
+    transform: translate(100vw, 0);
+  }
+  
   .btn-box {
     background-color: rgb(183, 194, 181);
     width: 10%;
