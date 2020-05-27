@@ -16,7 +16,8 @@ const start = (() => {
   const idxCurrentThumb = aryThumbs.findIndex((obj) => obj.classList.contains('th-active'));
   
   nextBtn.addEventListener('click', (e) => {
-    dom.rotateRight(aryThumbs[currentCount], aryThumbs[nextCount]);
+    dom.deactive(aryThumbs[currentCount]);
+    dom.active(aryThumbs[nextCount]);
     currentCount += 1;
     nextCount += 1;
     if(currentCount > 2) {

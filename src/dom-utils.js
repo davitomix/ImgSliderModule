@@ -19,19 +19,6 @@ const Dom = (() => {
     ele.classList.add(DEACTIVE);
   }
 
-  const rotateRight = (current, next) => {
-    next.classList.add(ACTIVE);
-    next.classList.remove(DEACTIVE);
-    current.classList.add(OUT_RIGHT);
-    current.classList.remove(IN_RIGHT);
-    next.classList.add(IN_RIGHT);
-    setTimeout(() => {
-      current.classList.remove(ACTIVE);
-      current.classList.add(DEACTIVE);
-      current.classList.remove(OUT_RIGHT);
-    }, 1000);
-  };
-
   const clearCurrentClasses = (ele) => {
     domCLasses.forEach(element => {
       if (ele.classList.contains(element)) {
@@ -42,8 +29,7 @@ const Dom = (() => {
   
   return {
     active,
-    deactive,
-    rotateRight
+    deactive
   };
 })();
 
