@@ -38,7 +38,7 @@ body {
     }
     .th-1 {
       top: 0;
-      right: 10;
+      right: 0;
       z-index: 1;
       background-image: url(./img/1.jpg);
     }
@@ -60,7 +60,7 @@ body {
   }
 
   .thumbs.th-out {
-    transform: translate(-90vw, 0);
+    transform: translate(-85vw, 0);
   }
   .btn-box {
     background-color: rgb(183, 194, 181);
