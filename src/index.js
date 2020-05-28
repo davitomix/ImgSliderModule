@@ -1,48 +1,42 @@
 import './style.scss';
-import Dom from './dom-utils';
-const thumbs = document.querySelectorAll('.thumbs');
-const aryThumbs = [];
-let idxCurrentThumb = null;
-// Dom
-const dom = Dom;
-// Previous 
-const prevBtn = document.getElementById('btn-prev');
-// Next
-const nextBtn = document.getElementById('btn-next');
-let currentActive = null;
-let nextActive = null;
-let prevActive = null;
 
-const start = (() => {
-  thumbs.forEach(a => aryThumbs.push(a));
-  const idxCurrentThumb = aryThumbs.findIndex((obj) => obj.classList.contains('th-active'));
-  currentActive = idxCurrentThumb;
-  nextActive = currentActive + 1;
+// Slider.
+const imgSlider = document.querySelector('.slider');
+const sliderImages = document.querySelectorAll('.slider img');
 
-  nextBtn.addEventListener('click', (e) => {
-    if(currentActive == 2) {
-      nextActive = 0;
-    }
-    else if(currentActive > 2) {
-      currentActive = 0;
-      nextActive = 1;
-    }
-    dom.rotateRight(aryThumbs[currentActive], aryThumbs[nextActive]);
-    currentActive += 1;
-    nextActive += 1;
-  }, false, { once: true });
+// Buttons.
+const prevBtn = document.querySelector('#btn-prev');
+const nextBtn = document.querySelector('#btn-next');
 
-  prevBtn.addEventListener('click', (e) =>{
-    if(currentActive == 0) {
-      nextActive = 2;
-    }
-    else if (currentActive < 0) {
-      currentActive = 2;
-      nextActive = 1;
-    }
-    dom.rotateLeft(aryThumbs[currentActive], aryThumbs[nextActive]);
-    currentActive -= 1;
-    nextActive -= 1;
-  }, false, { once: true });
+// Counter
+let counter = 1;
+const size = sliderImages[0].clientWidth;
 
-})();
+imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+nextBtn.addEventListener('click', () => {
+  if (counter >= sliderImages.length - 1) return;
+  imgSlider.style.transition = 'transform 0.4s ease-in-out';
+  counter += 1;
+  imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+prevBtn.addEventListener('click', () => {
+  if (counter <= 0) return;
+  imgSlider.style.transition = 'transform 0.4s ease-in-out';
+  counter -= 1;
+  imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+imgSlider.addEventListener('transitionend', () => {
+  if (sliderImages[counter].id === 'lastClone') {
+    imgSlider.style.transition = 'none';
+    counter = sliderImages.length - 2;
+    imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  }
+  if (sliderImages[counter].id === 'firstClone') {
+    imgSlider.style.transition = 'none';
+    counter = sliderImages.length - counter;
+    imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  }
+});
