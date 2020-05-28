@@ -14,19 +14,21 @@ const size = sliderImages[0].clientWidth;
 
 imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   if (counter >= sliderImages.length - 1) return;
   imgSlider.style.transition = 'transform 0.4s ease-in-out';
   counter += 1;
   imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
-});
+}, false, { once: true });
 
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   if (counter <= 0) return;
   imgSlider.style.transition = 'transform 0.4s ease-in-out';
   counter -= 1;
   imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
-});
+}, false, { once: true });
 
 imgSlider.addEventListener('transitionend', () => {
   if (sliderImages[counter].id === 'lastClone') {
