@@ -54,3 +54,17 @@ for (const element in sliderButtons) {
     imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
   });
 }
+
+const interval = setInterval(function() {
+  imgSlider.style.transition = 'transform 0.4s ease-in-out';
+  counter += 1;
+  imgSlider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+}, 3000);
+
+
+/* 
+Future improvements
+1 -> Set a fixed time that restart count when is pressed next/prev 
+    or slider buttons.
+2 -> Set colors on each point according to the actual image that is displayed.
+*/
